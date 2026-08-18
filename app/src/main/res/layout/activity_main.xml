@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    android:padding="10dp">
+
+    <!-- ================= TOP BAR ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/topbar"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="9dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOBOSAFE"
+            android:textColor="@color/text"
+            android:textStyle="bold"
+            android:letterSpacing="0.18"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="POCKET DASHCAM"
+            android:fontFamily="monospace"
+            android:textColor="@color/muted"
+            android:letterSpacing="0.14"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="@drawable/dot_muted" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="OFFLINE"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:letterSpacing="0.14"
+            android:textColor="@color/muted"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- ================= BODY ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <!-- ---------- PREVIEW ---------- -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            android:background="@drawable/bg_panel">
+
+            <SurfaceView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp" />
+
+            <LinearLayout
+                android:id="@+id/recBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="16dp"
+                android:background="@drawable/rec_badge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:visibility="invisible">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/dot_rec" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.2"
+                    android:text="REC · LIVE"
+                    android:textColor="@color/rec"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/statsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="16dp"
+                android:background="@drawable/pill"
+                android:fontFamily="monospace"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="7dp"
+                android:text="—"
+                android:textColor="@color/text"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+        <!-- ---------- CONTROL PANEL ---------- -->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_panel"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Label"
+                    android:text="ROLL NUMBER" />
+
+                <EditText
+                    android:id="@+id/rollInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_field"
+                    android:fontFamily="monospace"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:maxLines="1"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="11dp"
+                    android:textColor="@color/text"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn_ghost"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.04"
+                    android:text="KEY:"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="Tap to cycle key format if the server rejects slashes" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="14dp"
+                    android:text="PUBLISH ENDPOINTS" />
+
+                <TextView
+                    android:id="@+id/urlFront"
+                    style="@style/Url" />
+
+                <TextView
+                    android:id="@+id/urlBack"
+                    style="@style/Url"
+                    android:layout_marginTop="6dp" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="14dp"
+                    android:text="CONTROL" />
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/btn_primary"
+                    android:letterSpacing="0.1"
+                    android:text="START STREAM"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn_danger"
+                    android:letterSpacing="0.1"
+                    android:text="STOP STREAM"
+                    android:textColor="@color/rec"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSwitch"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_ghost"
+                        android:text="SWITCH CAM"
+                        android:textColor="@color/text"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnDual"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_ghost"
+                        android:text="DUAL: OFF"
+                        android:textColor="@color/text"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/statusDetail"
+                    style="@style/Hint"
+                    android:layout_marginTop="10dp"
+                    android:text="Not streaming" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="14dp"
+                    android:text="EVENT LOG" />
+
+                <ScrollView
+                    android:id="@+id/logScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/bg_console"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/logView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/muted"
+                        android:textSize="10sp" />
+                </ScrollView>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
