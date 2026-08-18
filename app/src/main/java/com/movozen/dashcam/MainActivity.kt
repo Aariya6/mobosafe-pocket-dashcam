@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback, StreamService.
 
         preview.holder.addCallback(this)
 
-        rollInput.setText("BTECH2502322")
+        rollInput.setText("BTECH2500223")
         refreshUrls()
         rollInput.setOnFocusChangeListener { _, hasFocus -> if (!hasFocus) refreshUrls() }
 
