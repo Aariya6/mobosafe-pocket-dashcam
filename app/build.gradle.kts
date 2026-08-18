@@ -4,7 +4,7 @@ plugins {
 }
 
 // If JitPack fails to resolve 2.8.0, change this ONE line to "2.7.3" or "2.6.7" and re-sync.
-val rootEncoder = "2.8.0"
+val rootEncoder = "2.6.7"
 
 android {
     namespace = "com.movozen.dashcam"
